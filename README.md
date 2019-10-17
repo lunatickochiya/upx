@@ -12,7 +12,7 @@ This is a GitHub Action to run [UPX][link_upx] on an executable file(s).
 
 ## Usage
 
-Example:
+Pack single file:
 
 ```yaml
 steps:
@@ -22,6 +22,13 @@ steps:
     go build -o hi main.go
 
 - uses: tarampampam/upx-action@master
+  with:
+    file: 'hi'
+    upx_args: '-9'
+
+# Or use ready docker image:
+
+- uses: docker://tarampampam/upx-action:latest
   with:
     file: 'hi'
     upx_args: '-9'
@@ -37,6 +44,13 @@ steps:
     go build -o hi main.go
 
 - uses: tarampampam/upx-action@master
+  with:
+    dir: '.'
+    upx_args: '-9'
+
+# Or use ready docker image:
+
+- uses: docker://tarampampam/upx-action:latest
   with:
     dir: '.'
     upx_args: '-9'
