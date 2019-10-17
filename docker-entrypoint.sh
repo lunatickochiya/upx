@@ -8,5 +8,5 @@ if [ ! -z $INPUT_INFILE ]; then
 fi;
 
 if [ ! -z $INPUT_INDIR ]; then
-  find $INPUT_INDIR -type d -maxdepth 1 -exec upx $INPUT_UPX_ARGS {} \;
+  find $INPUT_INDIR -not -path '*/\.*' -type f -maxdepth 1 -exec upx $INPUT_UPX_ARGS {} \;
 fi;
