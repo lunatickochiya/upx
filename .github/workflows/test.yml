@@ -21,7 +21,7 @@ jobs:
           go build -o ./hi main.go
           md5sum ./hi | cut -c -32 > hi.md5
 
-      - name: Run current action
+      - name: Run current action (pack file)
         uses: tarampampam/upx-action@master
         with:
           file: './hi'
@@ -41,7 +41,7 @@ jobs:
 
       - name: Test unpacked file execution
         run: |
-          test "$(./hi)" == hi
+          test "$(./hi)" = hi
           test $(cat ./hi.md5) != $(md5sum ./hi | cut -c -32)
           test $(cat ./hi.packed.md5) != $(md5sum ./hi | cut -c -32)
 
@@ -59,7 +59,7 @@ jobs:
           go build -o hi1 main.go
           cp ./hi1 ./hi2
 
-      - name: Run current action
+      - name: Run current action (pack files in directory)
         uses: tarampampam/upx-action@master
         with:
           dir: '.'
