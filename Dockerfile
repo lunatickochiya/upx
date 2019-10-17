@@ -1,8 +1,8 @@
 FROM alpine:latest
 
-LABEL repository="https://github.com/tarampampam/upx-action"
-LABEL homepage="https://github.com/tarampampam/upx-action"
-LABEL maintainer="tarampampam"
+LABEL repository="https://github.com/actions-github/upx"
+LABEL homepage="https://github.com/actions-github/upx"
+LABEL maintainer="https://github.com/actions-github"
 
 LABEL com.github.actions.name="UPX Action"
 LABEL com.github.actions.description="GitHub Action to run UPX on an executable"
