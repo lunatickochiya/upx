@@ -1,5 +1,5 @@
 # https://help.github.com/en/articles/contexts-and-expression-syntax-for-github-actions
-name: Test
+name: Test action
 
 on:
   push:
@@ -25,12 +25,13 @@ jobs:
         uses: tarampampam/upx-action@master
         with:
           file: './hi'
-          upx_args: '-9'
+          upx_args: '-7'
 
       - name: Test packed file execution
-        run: |
-          test "$(./hi)" = hi
-          test $(cat ./hi.md5) != $(md5sum ./hi | cut -c -32)
+        run: test "$(./hi)" = hi
+
+      - name: Test packed file checksum
+        run: test $(cat ./hi.md5) != $(md5sum ./hi | cut -c -32)
 
       - name: Unpack file
         uses: tarampampam/upx-action@master
@@ -39,9 +40,10 @@ jobs:
           upx_args: '-d'
 
       - name: Test unpacked file execution
-        run: |
-          test "$(./hi)" = hi
-          test $(cat ./hi.md5) = $(md5sum ./hi | cut -c -32)
+        run: test "$(./hi)" = hi
+
+      - name: Test unpacked file checksum
+        run: test $(cat ./hi.md5) = $(md5sum ./hi | cut -c -32)
 
   test2:
     name: Test action on ${{ matrix.os }} using directory
@@ -51,22 +53,30 @@ jobs:
       matrix:
         os: [ubuntu-16.04, ubuntu-latest]
     steps:
-      - name: Compile test file
+      - name: Compile test files
         run: |
-          printf %s 'package main;import "fmt";func main(){fmt.Println("hi")}' > main.go
-          go build -o hi1 main.go
-          cp ./hi1 ./hi2
+          printf %s 'package main;import "fmt";func main(){fmt.Println("hi1")}' > main1.go
+          printf %s 'package main;import "fmt";func main(){fmt.Println("hi2")}' > main2.go
+          go build -o hi1 main1.go
+          go build -o hi2 main2.go
+          md5sum ./hi1 | cut -c -32 > hi1.md5
+          md5sum ./hi2 | cut -c -32 > hi2.md5
 
       - name: Run current action (pack files in directory)
         uses: tarampampam/upx-action@master
         with:
           dir: '.'
-          upx_args: '-9'
+          upx_args: '-7'
 
       - name: Test packed files execution
         run: |
-          test "$(./hi1)" = hi
-          test "$(./hi2)" = hi
+          test "$(./hi1)" = hi1
+          test "$(./hi2)" = hi2
+
+      - name: Test packed files checksums
+        run: |
+          test $(cat ./hi1.md5) != $(md5sum ./hi1 | cut -c -32)
+          test $(cat ./hi2.md5) != $(md5sum ./hi2 | cut -c -32)
 
       - name: Unpack files
         uses: tarampampam/upx-action@master
@@ -76,5 +86,10 @@ jobs:
 
       - name: Test unpacked files execution
         run: |
-          test "$(./hi1)" = hi
-          test "$(./hi2)" = hi
+          test "$(./hi1)" = hi1
+          test "$(./hi2)" = hi2
+
+      - name: Test unpacked files checksums
+        run: |
+          test $(cat ./hi1.md5) = $(md5sum ./hi1 | cut -c -32)
+          test $(cat ./hi2.md5) = $(md5sum ./hi2 | cut -c -32)
