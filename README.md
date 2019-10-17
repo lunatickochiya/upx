@@ -2,8 +2,6 @@
   <img src="https://avatars0.githubusercontent.com/u/44036562?s=200&v=4" alt="Logo" width="128" />
 </p>
 
-# `upx-action`
-
 ![Release version][badge_release_version]
 [![Build Status][badge_build]][link_build]
 [![License][badge_license]][link_license]
@@ -53,7 +51,7 @@ If you will find any package errors, please, [make an issue][link_create_issue] 
 
 This is open-sourced software licensed under the [WTFPL License][link_license].
 
-[badge_build]:https://github.com/actions/tarampampam/workflows/.github/workflows/test.yml/badge.svg
+[badge_build]:https://github.com/tarampampam/upx-action/workflows/Test%20action/badge.svg
 [badge_release_version]:https://img.shields.io/github/release/tarampampam/upx-action.svg?maxAge=30
 [badge_license]:https://img.shields.io/github/license/tarampampam/upx-action.svg?longCache=true
 [badge_issues]:https://img.shields.io/github/issues/tarampampam/upx-action.svg?maxAge=45
