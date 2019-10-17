@@ -18,7 +18,8 @@ jobs:
       - name: Compile test file
         run: |
           printf %s 'package main;import "fmt";func main(){fmt.Println("hi")}' > main.go
-          go build -o hi main.go
+          go build -o ./hi main.go
+          md5sum ./hi | cut -c -32 > hi.md5
 
       - name: Run current action
         uses: tarampampam/upx-action@master
@@ -27,7 +28,10 @@ jobs:
           upx_args: '-9'
 
       - name: Test packed file execution
-        run: test "$(./hi)" == hi
+        run: |
+          test "$(./hi)" = hi
+          md5sum ./hi | cut -c -32 > hi.packed.md5
+          test $(cat ./hi.md5) != $(md5sum ./hi | cut -c -32)
 
       - name: Unpack file
         uses: tarampampam/upx-action@master
@@ -36,7 +40,10 @@ jobs:
           upx_args: '-d'
 
       - name: Test unpacked file execution
-        run: test "$(./hi)" == hi
+        run: |
+          test "$(./hi)" == hi
+          test $(cat ./hi.md5) != $(md5sum ./hi | cut -c -32)
+          test $(cat ./hi.packed.md5) != $(md5sum ./hi | cut -c -32)
 
   test2:
     name: Test action on ${{ matrix.os }} using directory
@@ -60,16 +67,16 @@ jobs:
 
       - name: Test packed files execution
         run: |
-          test "$(./hi1)" == hi
-          test "$(./hi2)" == hi
+          test "$(./hi1)" = hi
+          test "$(./hi2)" = hi
 
       - name: Unpack files
         uses: tarampampam/upx-action@master
         with:
-          die: '.'
+          dir: '.'
           upx_args: '-d'
 
       - name: Test unpacked files execution
         run: |
-          test "$(./hi1)" == hi
-          test "$(./hi2)" == hi
+          test "$(./hi1)" = hi
+          test "$(./hi2)" = hi
