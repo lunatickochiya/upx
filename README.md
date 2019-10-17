@@ -8,6 +8,8 @@
 
 This is a GitHub Action to run [UPX][link_upx] on an executable file(s).
 
+> Action idea looked in [joshuarli/strip-upx-action](https://github.com/joshuarli/strip-upx-action)
+
 ## Usage
 
 Example:
