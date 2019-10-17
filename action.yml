@@ -1,0 +1,7 @@
+name: "UPX Action"
+description: "GitHub Action to run UPX on an executable"
+author: "tarampampam"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
