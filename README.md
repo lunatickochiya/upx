@@ -60,7 +60,7 @@ This is open-sourced software licensed under the [WTFPL License][link_license].
 [link_build]:https://github.com/tarampampam/upx-action/actions
 [link_license]:https://github.com/tarampampam/upx-action/blob/master/LICENSE
 [link_issues]:https://github.com/tarampampam/upx-action/issues
-[link_create_issue]:https://github.com/tarampampam/upx-action/issues/new/choose
+[link_create_issue]:https://github.com/tarampampam/upx-action/issues/new
 [link_pulls]:https://github.com/tarampampam/upx-action/pulls
 
 [link_upx]:https://github.com/upx/upx
