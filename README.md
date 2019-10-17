@@ -8,7 +8,7 @@
 [![Build Status][badge_build]][link_build]
 [![License][badge_license]][link_license]
 
-This is a GitHub Action to run UPX on an executable.
+This is a GitHub Action to run [UPX][link_upx] on an executable.
 
 ## Usage
 
@@ -49,3 +49,4 @@ This is open-sourced software licensed under the [WTFPL License][link_license].
 [link_issues]:https://github.com/tarampampam/upx-action/issues
 [link_create_issue]:https://github.com/tarampampam/upx-action/issues/new/choose
 [link_pulls]:https://github.com/tarampampam/upx-action/pulls
+[link_upx]:https://github.com/upx/upx
