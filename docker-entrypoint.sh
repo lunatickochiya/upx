@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 # i'm guessing this is the volume-mounted directory where steps: executes in
 cd "$GITHUB_WORKSPACE"
