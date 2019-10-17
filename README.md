@@ -23,7 +23,7 @@ steps:
 
 - uses: tarampampam/upx-action@master
   with:
-    infile: 'hi'
+    file: 'hi'
     upx_args: '-9'
 ```
   
@@ -38,7 +38,7 @@ steps:
 
 - uses: tarampampam/upx-action@master
   with:
-    indir: '.'
+    dir: '.'
     upx_args: '-9'
 ```
 

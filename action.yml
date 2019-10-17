@@ -7,9 +7,9 @@ branding:
   color: blue
 
 inputs:
-  infile:
+  file:
     description: 'Input file'
-  indir:
+  dir:
     description: 'Input directory'
   upx_args:
     description: 'Arguments to pass to UPX'
