@@ -26,6 +26,21 @@ steps:
     infile: 'hi'
     upx_args: '-9'
 ```
+  
+or:
+  
+```yaml
+steps:
+- name: compile test file
+  run: |
+    printf %s 'package main;import "fmt";func main(){fmt.Println("hi")}' > main.go
+    go build -o hi main.go
+
+- uses: tarampampam/upx-action@master
+  with:
+    indir: '.'
+    upx_args: '-9'
+```
 
 ## Support
 

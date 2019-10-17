@@ -1,7 +1,10 @@
 # https://help.github.com/en/articles/contexts-and-expression-syntax-for-github-actions
 name: Test
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   test:
@@ -16,12 +19,27 @@ jobs:
         run: |
           printf %s 'package main;import "fmt";func main(){fmt.Println("hi")}' > main.go
           go build -o hi main.go
+          mkdir ./dir
+          cp ./hi ./dir/hi1
+          cp ./hi ./dir/hi2
 
-      - name: Run current action
+      - name: Run current action (for file)
         uses: tarampampam/upx-action@master
         with:
           infile: 'hi'
           upx_args: '-9'
 
-      - name: Rest results
+      - name: Test results (for file)
         run: test "$(./hi)" == hi
+
+      - name: Run current action (for directory)
+        uses: tarampampam/upx-action@master
+        with:
+          indir: ./dir
+          upx_args: '-9'
+
+      - name: Test results (for directory, first file)
+        run: test "$(./dir/hi1)" == hi
+
+      - name: Test results (for directory, seconf file)
+        run: test "$(./dir/hi2)" == hi

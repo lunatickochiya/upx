@@ -8,8 +8,9 @@ branding:
 
 inputs:
   infile:
-    description: 'Input file(s)'
-    required: true
+    description: 'Input file'
+  indir:
+    description: 'Input directory'
   upx_args:
     description: 'Arguments to pass to UPX'
 
