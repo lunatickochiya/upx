@@ -6,7 +6,7 @@
 [![Build Status][badge_build]][link_build]
 [![License][badge_license]][link_license]
 
-This is a GitHub Action to run [UPX][link_upx] on an executable.
+This is a GitHub Action to run [UPX][link_upx] on an executable file(s).
 
 ## Usage
 
@@ -24,9 +24,9 @@ steps:
     file: 'hi'
     upx_args: '-9'
 ```
-  
+
 or:
-  
+
 ```yaml
 steps:
 - name: compile test file
@@ -62,4 +62,5 @@ This is open-sourced software licensed under the [WTFPL License][link_license].
 [link_issues]:https://github.com/tarampampam/upx-action/issues
 [link_create_issue]:https://github.com/tarampampam/upx-action/issues/new/choose
 [link_pulls]:https://github.com/tarampampam/upx-action/pulls
+
 [link_upx]:https://github.com/upx/upx
