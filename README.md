@@ -69,7 +69,7 @@ If you will find any package errors, please, [make an issue][link_create_issue] 
 This is open-sourced software licensed under the [WTFPL License][link_license].
 
 [badge_build]:https://github.com/actions-github/upx/workflows/Test%20action/badge.svg
-[badge_docker_build]:https://img.shields.io/docker/build/gact/upx.svg?maxAge=30
+[badge_docker_build]:https://img.shields.io/docker/cloud/build/gact/upx.svg?maxAge=30
 [badge_release_version]:https://img.shields.io/github/release/actions-github/upx.svg?maxAge=30
 [badge_license]:https://img.shields.io/github/license/actions-github/upx.svg?longCache=true
 [badge_issues]:https://img.shields.io/github/issues/actions-github/upx.svg?maxAge=45
