@@ -30,7 +30,6 @@ jobs:
       - name: Test packed file execution
         run: |
           test "$(./hi)" = hi
-          md5sum ./hi | cut -c -32 > hi.packed.md5
           test $(cat ./hi.md5) != $(md5sum ./hi | cut -c -32)
 
       - name: Unpack file
@@ -42,8 +41,7 @@ jobs:
       - name: Test unpacked file execution
         run: |
           test "$(./hi)" = hi
-          test $(cat ./hi.md5) != $(md5sum ./hi | cut -c -32)
-          test $(cat ./hi.packed.md5) != $(md5sum ./hi | cut -c -32)
+          test $(cat ./hi.md5) = $(md5sum ./hi | cut -c -32)
 
   test2:
     name: Test action on ${{ matrix.os }} using directory
