@@ -1,3 +1,4 @@
+# https://help.github.com/en/articles/contexts-and-expression-syntax-for-github-actions
 name: Test
 
 on: [push, pull_request]
@@ -17,7 +18,7 @@ jobs:
           go build -o hi main.go
 
       - name: Run current action
-        uses: tarampampam/upx-action@${{ github.ref }}
+        uses: tarampampam/upx-action@master
         with:
           infile: 'hi'
           upx_args: '-9'
