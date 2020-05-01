@@ -9,10 +9,13 @@ branding:
 inputs:
   file:
     description: 'Input file'
+    required: false
   dir:
     description: 'Input directory'
+    required: false
   upx_args:
     description: 'Arguments to pass to UPX'
+    required: true
 
 runs:
   using: docker

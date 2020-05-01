@@ -22,14 +22,14 @@ steps:
     printf %s 'package main;import "fmt";func main(){fmt.Println("hi")}' > main.go
     go build -o hi main.go
 
-- uses: actions-github/upx@master
+- uses: gacts/upx@master
   with:
     file: 'hi'
     upx_args: '-9'
 
 # Or use ready docker image:
 
-- uses: docker://gact/upx:latest
+- uses: docker://gacts/upx:latest
   with:
     file: 'hi'
     upx_args: '-9'
@@ -44,14 +44,14 @@ steps:
     printf %s 'package main;import "fmt";func main(){fmt.Println("hi")}' > main.go
     go build -o hi main.go
 
-- uses: actions-github/upx@master
+- uses: gacts/upx@master
   with:
     dir: '.'
     upx_args: '-9'
 
 # Or use ready docker image:
 
-- uses: docker://gact/upx:latest
+- uses: docker://gacts/upx:latest
   with:
     dir: '.'
     upx_args: '-9'
@@ -68,18 +68,18 @@ If you will find any package errors, please, [make an issue][link_create_issue] 
 
 This is open-sourced software licensed under the [WTFPL License][link_license].
 
-[badge_build]:https://github.com/actions-github/upx/workflows/Test%20action/badge.svg
-[badge_docker_build]:https://img.shields.io/docker/cloud/build/gact/upx.svg?maxAge=30
-[badge_release_version]:https://img.shields.io/github/release/actions-github/upx.svg?maxAge=30
-[badge_license]:https://img.shields.io/github/license/actions-github/upx.svg?longCache=true
-[badge_issues]:https://img.shields.io/github/issues/actions-github/upx.svg?maxAge=45
-[badge_pulls]:https://img.shields.io/github/issues-pr/actions-github/upx.svg?maxAge=45
+[badge_build]:https://github.com/gacts/upx/workflows/Test%20action/badge.svg
+[badge_docker_build]:https://img.shields.io/docker/cloud/build/gacts/upx.svg?maxAge=30
+[badge_release_version]:https://img.shields.io/github/release/gacts/upx.svg?maxAge=30
+[badge_license]:https://img.shields.io/github/license/gacts/upx.svg?longCache=true
+[badge_issues]:https://img.shields.io/github/issues/gacts/upx.svg?maxAge=45
+[badge_pulls]:https://img.shields.io/github/issues-pr/gacts/upx.svg?maxAge=45
 
-[link_build]:https://github.com/actions-github/upx/actions
-[link_license]:https://github.com/actions-github/upx/blob/master/LICENSE
-[link_issues]:https://github.com/actions-github/upx/issues
-[link_create_issue]:https://github.com/actions-github/upx/issues/new
-[link_pulls]:https://github.com/actions-github/upx/pulls
-[link_docker_hub]:https://hub.docker.com/r/gact/upx
+[link_build]:https://github.com/gacts/upx/actions
+[link_license]:https://github.com/gacts/upx/blob/master/LICENSE
+[link_issues]:https://github.com/gacts/upx/issues
+[link_create_issue]:https://github.com/gacts/upx/issues/new
+[link_pulls]:https://github.com/gacts/upx/pulls
+[link_docker_hub]:https://hub.docker.com/r/gacts/upx
 
 [link_upx]:https://github.com/upx/upx
