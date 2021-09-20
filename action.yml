@@ -10,9 +10,11 @@ inputs:
   file:
     description: 'Input file'
     required: false
+    deprecationMessage: This GitHub action was deprecated
   dir:
     description: 'Input directory'
     required: false
+    deprecationMessage: This GitHub action was deprecated
   upx_args:
     description: 'Arguments to pass to UPX'
     required: true

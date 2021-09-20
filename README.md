@@ -1,3 +1,5 @@
+### :warning: This action was deprecated, use [crazy-max/ghaction-upx](https://github.com/crazy-max/ghaction-upx) instead :warning:
+
 <p align="center">
   <img src="https://avatars0.githubusercontent.com/u/44036562?s=200&v=4" alt="Logo" width="128" />
 </p>
